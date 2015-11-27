@@ -314,8 +314,7 @@ class UdItabGenerator( ud_opcode.UdOpcodeTables ):
         self.ItabH.write( "\n" )
 
         self.ItabH.write("\n/* itab entry operand definitions */\n");
-        operands = self.OperandDict.keys()
-        operands.sort()
+        operands = sorted(self.OperandDict)
         for o in operands:
             self.ItabH.write("#define O_%-7s { %-12s %-8s }\n" %
                     (o, self.OperandDict[o][0] + ",", self.OperandDict[o][1]));
